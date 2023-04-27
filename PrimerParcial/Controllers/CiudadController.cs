@@ -43,7 +43,7 @@ namespace PrimerParcial.Controllers
             var result = this.CiudadService.insertarCiudad(new Infraestructure.Models.CiudadModel
             {
                 Estado = models.Estado,
-                Ciudad = models.Ciudad,
+                Ciudad = models.Ciudad
             });
             return Ok(result);
         }
@@ -54,7 +54,7 @@ namespace PrimerParcial.Controllers
             var result = this.CiudadService.modificarCiudad(new Infraestructure.Models.CiudadModel
             {
                 Estado = models.Estado,
-                Ciudad = models.Ciudad,
+                Ciudad = models.Ciudad
             }, id);
             return Ok(result);
         }

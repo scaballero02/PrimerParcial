@@ -23,7 +23,7 @@ namespace Infraestructure.Repository
             try
             {
                 String query = "insert into cliente(nombre, apellido, idciudad, fechanacimiento, ciudad, nacionalidad, documento, email, telefono) " +
-                    " values(@Nombre, @apellido, @idciudad, @Nacimiento, @ciudad, @nacionalidad, @documento, @email, @telefono)";
+                    " values(@Nombre, @apellido, @idciudad, date(@fechanacimiento), @ciudad, @nacionalidad, @documento, @email, @telefono)";
                 connection.Open();
                 connection.Execute(query, cliente);
                 connection.Close();
@@ -43,10 +43,14 @@ namespace Infraestructure.Repository
                 connection.Execute($"UPDATE cliente SET " +
                     "nombre = @nombre, " +
                     "apellido = @apellido, " +
-                    "edad = @edad, " +
                     "email = @email, " +
-                    "telefono = @telefono " +
-                    $"WHERE id = {id}");
+                    "telefono = @telefono, " +
+                    "idciudad = @idciudad, " +
+                    "fechanacimiento = date(@fechanacimiento), " +
+                    "ciudad = @ciudad, " +
+                    "nacionalidad = @nacionalidad, " +
+                    "documento = @documento " +
+                    $"WHERE id = {id}", cliente);
                 return "Se modificaron los datos correctamente...";
             }
             catch (Exception ex)

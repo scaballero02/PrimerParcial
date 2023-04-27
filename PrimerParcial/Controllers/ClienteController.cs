@@ -48,7 +48,7 @@ namespace PrimerParcial.Controllers
                 Email = models.Email,
                 IdCiudad = models.IdCiudad,
                 Telefono = models.Telefono,
-                Nacimiento = models.Nacimiento,
+                FechaNacimiento = models.FechaNacimiento,
                 Documento = models.Documento,
                 Ciudad = models.Ciudad,
                 Nacionalidad = models.Nacionalidad,
@@ -59,6 +59,7 @@ namespace PrimerParcial.Controllers
         [HttpPut("ModificarCliente/{id}")]
         public ActionResult<string> modificarCliente(ClienteModel models, int id)
         {
+
             var result = this.ClienteService.modificarCliente(new Infraestructure.Models.ClienteModel
             {
                 Nombre = models.Nombre,
@@ -66,7 +67,7 @@ namespace PrimerParcial.Controllers
                 Email = models.Email,
                 IdCiudad = models.IdCiudad,
                 Telefono = models.Telefono,
-                Nacimiento = models.Nacimiento,
+                FechaNacimiento = models.FechaNacimiento,
                 Documento = models.Documento,
                 Ciudad = models.Ciudad,
                 Nacionalidad = models.Nacionalidad,

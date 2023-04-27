@@ -42,8 +42,8 @@ namespace Infraestructure.Repository
             {
                 connection.Execute($"UPDATE ciudad SET " +
                     "estado = @Estado, " +
-                    "ciudad = @Ciudad, " +
-                    $"WHERE id = {id}");
+                    "ciudad = @Ciudad " +
+                    $"WHERE id = {id}",Ciudad);
                 return "Se modificaron los datos correctamente...";
             }
             catch (Exception ex)
