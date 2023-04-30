@@ -22,7 +22,15 @@ CREATE TABLE IF NOT EXISTS public.cliente
         NOT VALID
 )
 
+CREATE TABLE IF NOT EXISTS public.ciudad
+(
+    id bigint NOT NULL DEFAULT nextval('ciudad_id_seq'::regclass),
+    ciudad character varying COLLATE pg_catalog."default",
+    estado character varying COLLATE pg_catalog."default",
+    CONSTRAINT ciudad_pkey PRIMARY KEY (id)
+)
+
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS public.cliente
+ALTER TABLE IF EXISTS public.ciudad
     OWNER to postgres;
