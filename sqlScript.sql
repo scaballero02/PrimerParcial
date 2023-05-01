@@ -22,6 +22,15 @@ CREATE TABLE IF NOT EXISTS public.cliente
         NOT VALID
 )
 
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.cliente
+    OWNER to postgres;
+    
+-- Table: public.ciudad
+
+-- DROP TABLE IF EXISTS public.ciudad;
+
 CREATE TABLE IF NOT EXISTS public.ciudad
 (
     id bigint NOT NULL DEFAULT nextval('ciudad_id_seq'::regclass),
@@ -34,3 +43,33 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.ciudad
     OWNER to postgres;
+    
+-- SEQUENCE: public.ciudad_id_seq
+
+-- DROP SEQUENCE IF EXISTS public.ciudad_id_seq;
+
+CREATE SEQUENCE IF NOT EXISTS public.ciudad_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1
+    OWNED BY ciudad.id;
+
+ALTER SEQUENCE public.ciudad_id_seq
+    OWNER TO postgres;
+    
+-- SEQUENCE: public.cliente_id_seq
+
+-- DROP SEQUENCE IF EXISTS public.cliente_id_seq;
+
+CREATE SEQUENCE IF NOT EXISTS public.cliente_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1
+    OWNED BY cliente.id;
+
+ALTER SEQUENCE public.cliente_id_seq
+    OWNER TO postgres;
